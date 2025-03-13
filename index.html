@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppin&disply=swap" rel="stylesheet" />
+    <style>
+
+            *
+            {
+                padding:0;
+                margin:0;
+                box-sizing:border-box;
+                font-family:"Poppins", sans-serif;
+            }
+body
+{
+    background-color: black;
+}
+            .maincard
+            {
+                background-color: black;
+            }
+
+            .card
+            {
+                
+                width:640px;
+                height:400px;
+                position:absolute;
+                margin:auto;
+                left:30%;
+                right:0;
+                top:0;
+                bottom:0;
+                -webkit-perspective:1200px;
+                perspective:1200px;
+
+            }
+
+            .card:hover
+            {
+                transform:rotate(-5deg);
+            }
+
+            .card:hover .outside
+            {
+                transform:rotateY(-150deg);
+            }
+
+
+            .outside,.inside
+            {
+                border:1px solid black;
+                height:100%;
+                width:50%;
+                position:absolute;
+            }
+
+            .inside
+            {
+                border:1px solid black;
+                height:100%;
+                width:50%;
+                position:absolute;
+
+            }
+
+            .inside
+            {
+                left:0%;
+                background: linear-gradient(to right, #e0e0e0,#ffffff 30%);
+                /* line-height:3px; */
+                padding:0 20px;
+                text-align:center;
+                display: flex;
+                flex-direction:column;
+                justify-content:space-around;
+                align-items:center;
+                left:0%;
+            }
+
+            .outside
+            {
+                -webkit-transform-style:preserve-3d;
+                transform-style:preserve-3d;
+                z-index:1;
+                transform-origin:left;
+                transition:5s;
+            }
+
+            .front,.back
+            {
+                height:100%;
+                width:100%;
+                background-color: white;
+                position:absolute;
+                -webkit-backface-visibility: hidden;
+                backface-visibility:hidden;
+                transform:rotate(0 deg);
+            }
+
+            .front
+            {
+                background-color:#ffffff;
+            }
+
+            .back
+            {
+                transform:rotateY(180deg);
+                background: linear-gradient(to left,#e0e0e0,#ffffff 30%);
+            }
+            
+
+   img
+   {
+    position:absolute;
+    height:100%;
+    width:100%;
+   }
+
+.wishimg1
+{
+    z-index:-1;
+}
+
+.wishimg2
+{
+    z-index:1;
+}
+
+
+.wish1
+{
+    position:absolute;
+    color:darkblue;
+    height:230px;
+    width:200px;
+    top:25%;
+    left:20%;
+    transform:rotate(-6deg);
+    font-family: 'Brush Script MT', cursive;
+    font-size:18px;
+
+}
+
+.wish2
+{
+    position:absolute;
+    color:red;
+    top:25%;
+    left:18%;
+    font-family: 'Brush Script MT', cursive;
+    font-size:15px;
+    height:100px;
+    width:200px;
+
+
+}
+
+
+.wish3
+{
+    position:absolute;
+    color:black;
+    top:45%;
+    left:18%;
+    font-family: 'Brush Script MT', cursive;
+    font-size:15px;
+    height:130px;
+    width:200px;
+
+}
+
+
+
+
+
+
+
+
+   .confetti-container 
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .confetti 
+        {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall 
+        {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<div class="maincard">
+    <div class="confetti-container" id="confetti-container"></div>
+
+<div class="card">
+    
+    <div class="outside">
+        
+<div class="front">
+    <img src="https://img.freepik.com/premium-photo/poster-with-words-happy-birthday-it_1131934-22768.jpg?ga=GA1.1.2080071529.1741780812&semt=ais_hybrid">
+</div>
+<div class="back">
+<img class="wishimg1" src="https://media.istockphoto.com/id/2063431268/photo/birthday-card-with-confetti-and-ribbons.webp?a=1&b=1&s=612x612&w=0&k=20&c=_oe_YNhMJz1KmQM-A3_fF5Nl7__mjzAoug422eJqkBk=">
+<div class="wish1">
+    Today is a special day for me because it is your birthday. Having you as a friend is one of the greatest blessings in my life. You've been my rock through thick and this card brings you love, encouragement, a smile on your face, and happy vibes throughout your special day.
+</div>
+</div>
+
+    </div>
+    <div class="inside">
+        <img src="https://media.istockphoto.com/id/2201947319/photo/birthday-party-background.jpg?s=612x612&w=0&k=20&c=2CFR2V7aI0IazYhBlWB47svKETxtuxtcTQDU_8Gk6LU=">
+        <div class="wish2">Wishing you the most joyous birthday! <br> May this and every year be special, magical and unforgettable.</div>
+        <div class="wish3">On your special day, I wish you to be happy and cheerful! <br> May your eyes be filled with happiness, your heart be filled with love, your mind with new ideas, and your life with success and exciting adventures.</div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+    function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                confetti.style.animationDelay =` ${Math.random() * 3}s`;
+                container.appendChild(confetti);
+            }
+        }
+
+let card=document.querySelector('.card');
+card.addEventListener("mouseover",()=>{createConfetti();});
+</script>
+</html>
